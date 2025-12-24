@@ -1,0 +1,517 @@
+.color-detail-page {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.loading-container .loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #FF6B35;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+.loading-container .loading-text {
+  color: #666;
+}
+.color-detail-page .color-header {
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.color-detail-page .color-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));
+}
+.color-detail-page .color-header .header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  padding: 40px 20px 30px;
+  display: flex;
+  flex-direction: column;
+}
+.color-detail-page .color-header .back-btn {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  z-index: 10;
+}
+.color-detail-page .color-header .back-btn:active {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0.95);
+}
+.color-detail-page .color-header .back-btn .back-icon {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+  transform: translateX(-2px);
+}
+.color-detail-page .color-header .color-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.color-detail-page .color-header .color-info .color-emoji {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  animation: float 3s ease-in-out infinite;
+}
+.color-detail-page .color-header .color-info .color-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.color-detail-page .color-header .color-info .color-meaning {
+  opacity: 0.95;
+  max-width: 80%;
+  line-height: 1.5;
+}
+.color-detail-page .color-header .header-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  z-index: 9;
+}
+.color-detail-page .color-header .header-actions .action-btn {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+.color-detail-page .color-header .header-actions .action-btn.active {
+  background: rgba(255, 107, 53, 0.3);
+  border-color: rgba(255, 107, 53, 0.5);
+}
+.color-detail-page .color-header .header-actions .action-btn:active {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0.95);
+}
+.color-detail-page .color-header .header-actions .action-btn .action-icon {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+.color-detail-page .content-container {
+  flex: 1;
+  padding: 30px 20px;
+  margin-top: -20px;
+  border-radius: 30px 0 0 0;
+  background: white;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+.color-detail-page .content-container .section-title {
+  display: block;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 15px;
+}
+.color-detail-page .content-container .section-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 30px;
+  background: linear-gradient(to bottom, #FF6B35, #4A90E2);
+  border-radius: 2px;
+}
+.color-detail-page .color-codes-section {
+  margin-bottom: 35px;
+}
+.color-detail-page .color-codes-section .codes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.color-detail-page .color-codes-section .codes-grid .code-item {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 20px 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  cursor: pointer;
+}
+.color-detail-page .color-codes-section .codes-grid .code-item:active {
+  transform: scale(0.98);
+}
+.color-detail-page .color-codes-section .codes-grid .code-item:first-child:hover, .color-detail-page .color-codes-section .codes-grid .code-item:nth-child(2):hover {
+  border-color: #FF6B35;
+  background: #fff5f2;
+}
+.color-detail-page .color-codes-section .codes-grid .code-item:first-child:hover .copy-hint, .color-detail-page .color-codes-section .codes-grid .code-item:nth-child(2):hover .copy-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+.color-detail-page .color-codes-section .codes-grid .code-item .code-type {
+  display: block;
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.color-detail-page .color-codes-section .codes-grid .code-item .code-value {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  font-family: "Courier New", monospace;
+  word-break: break-all;
+}
+.color-detail-page .color-codes-section .codes-grid .code-item .copy-hint {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  font-size: 0.8rem;
+  color: #FF6B35;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.3s ease;
+}
+.color-detail-page .description-section {
+  margin-bottom: 35px;
+}
+.color-detail-page .description-section .description-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  padding: 25px;
+  border-left: 5px solid;
+  border-image: linear-gradient(to bottom, #FF6B35, #4A90E2) 1;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+.color-detail-page .description-section .description-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+.color-detail-page .description-section .description-card .description-text {
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: #495057;
+  text-align: justify;
+  position: relative;
+  z-index: 1;
+}
+.color-detail-page .similar-colors-section {
+  margin-bottom: 35px;
+}
+.color-detail-page .similar-colors-section .similar-colors-list {
+  white-space: nowrap;
+  padding: 10px 0;
+}
+.color-detail-page .similar-colors-section .similar-colors-list .similar-color-item {
+  display: inline-block;
+  width: 180px;
+  height: 120px;
+  border-radius: 20px;
+  margin-right: 15px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.color-detail-page .similar-colors-section .similar-colors-list .similar-color-item:last-child {
+  margin-right: 0;
+}
+.color-detail-page .similar-colors-section .similar-colors-list .similar-color-item:active {
+  transform: scale(0.95) rotate(-1deg);
+}
+.color-detail-page .similar-colors-section .similar-colors-list .similar-color-item .similar-color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15px;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.color-detail-page .similar-colors-section .similar-colors-list .similar-color-item .similar-color-overlay .similar-color-name {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.color-detail-page .similar-colors-section .similar-colors-list .similar-color-item .similar-color-overlay .similar-color-meaning {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+.color-detail-page .application-section {
+  margin-bottom: 35px;
+}
+.color-detail-page .application-section .scenes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.color-detail-page .application-section .scenes-grid .scene-card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f3f5;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.color-detail-page .application-section .scenes-grid .scene-card:active {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+.color-detail-page .application-section .scenes-grid .scene-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FF6B35, #4A90E2);
+}
+.color-detail-page .application-section .scenes-grid .scene-card .scene-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 15px;
+}
+.color-detail-page .application-section .scenes-grid .scene-card .scene-title {
+  display: block;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+.color-detail-page .application-section .scenes-grid .scene-card .scene-tips .scene-tip {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.color-detail-page .application-section .scenes-grid .scene-card .scene-tips .scene-tip:last-child {
+  margin-bottom: 0;
+}
+.color-detail-page .action-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+.color-detail-page .action-buttons .action-btn {
+  height: 56px;
+  border-radius: 28px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.color-detail-page .action-buttons .action-btn::after {
+  border: none;
+}
+.color-detail-page .action-buttons .action-btn:active {
+  transform: scale(0.98);
+}
+.color-detail-page .action-buttons .action-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+.color-detail-page .action-buttons .action-btn .btn-text {
+  position: relative;
+  z-index: 1;
+}
+.color-detail-page .action-buttons .action-btn .btn-emoji {
+  margin-left: 8px;
+  position: relative;
+  z-index: 1;
+}
+.color-detail-page .action-buttons .action-btn.primary {
+  background: linear-gradient(45deg, #FF6B35, #FFA726);
+  color: white;
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+}
+.color-detail-page .action-buttons .action-btn.secondary {
+  background: white;
+  color: #333;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+.color-detail-page .recent-section .recent-colors {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.color-detail-page .recent-section .recent-colors .recent-color-dot {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.color-detail-page .recent-section .recent-colors .recent-color-dot:active {
+  transform: scale(0.9) rotate(15deg);
+}
+.color-detail-page .recent-section .recent-colors .recent-color-dot::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.color-detail-page .recent-section .recent-colors .recent-color-dot:active::before {
+  opacity: 1;
+}
+.color-detail-page .recent-section .recent-colors .recent-color-dot .recent-emoji {
+  z-index: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-5deg);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .color-detail-page {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+  }
+  .color-detail-page .content-container {
+    background: #2d3436;
+  }
+  .color-detail-page .content-container .section-title {
+    color: #ecf0f1;
+  }
+  .color-detail-page .color-codes-section .codes-grid .code-item {
+    background: #3c4245;
+    border-color: #3c4245;
+  }
+  .color-detail-page .color-codes-section .codes-grid .code-item:first-child:hover, .color-detail-page .color-codes-section .codes-grid .code-item:nth-child(2):hover {
+    border-color: #FF6B35;
+    background: #3c4245;
+  }
+  .color-detail-page .color-codes-section .codes-grid .code-item .code-type {
+    color: #b2bec3;
+  }
+  .color-detail-page .color-codes-section .codes-grid .code-item .code-value {
+    color: #ecf0f1;
+  }
+  .color-detail-page .description-section .description-card {
+    background: #3c4245;
+    border-left-color: #FF6B35;
+  }
+  .color-detail-page .description-section .description-card .description-text {
+    color: #dfe6e9;
+  }
+  .color-detail-page .application-section .scene-card {
+    background: #3c4245;
+    border-color: #4a4a4a;
+  }
+  .color-detail-page .application-section .scene-card .scene-title {
+    color: #ecf0f1;
+  }
+  .color-detail-page .application-section .scene-card .scene-tip {
+    color: #b2bec3;
+  }
+  .color-detail-page .action-buttons .action-btn.primary {
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.2);
+  }
+  .color-detail-page .action-buttons .action-btn.secondary {
+    background: #3c4245;
+    color: #ecf0f1;
+    border-color: #4a4a4a;
+  }
+}
